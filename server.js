@@ -15,8 +15,18 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//middlewares
-app.use(cors());
+const allowedOrigins = [
+  "https://ecommerce-project-frontend-p8ki.onrender.com",
+  "http://localhost:5173", // for local dev
+];
+
+// middlewares
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 //routes
