@@ -43,6 +43,10 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome to the new project</h1>");
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.listen(PORT, () => {
   console.log(`Server started at port: ${PORT}`);
 });
